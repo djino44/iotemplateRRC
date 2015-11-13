@@ -1,0 +1,22 @@
+{
+	// MongoDB config
+	"MongoDB": {
+		"uri": "mongodb://<dbuser>:<dbpassword>@<dbhost>:<dbport>/<dbdatabase>"
+	},
+	// Basic Auth config
+	"BasicAuth": {
+		"enable": true|false,
+		"user": "user",
+		"password": "password"
+	},
+	"Session": {
+		"secret": "secret"
+	},
+	"Auth": {
+		"google": {
+				"clientID": "key",
+				"clientSecret": "secret",
+				"callbackURL": "http://127.0.0.1:3000/auth/google/callback"
+		}
+	}
+}

@@ -1,0 +1,7 @@
+// Login
+#l-login.lc-block(data-ng-class="{ 'toggled': login.login === 1 }", data-ng-if='login.login === 1')
+	img(src="img/logo.png")
+	h3 Site de la prom's Li211
+	p Pour te connecter clique sur le bouton rouge à droite. Pas besoin de créer un compte c'est ton compte gadz qui te sert d'identifiant !
+	a.btn.btn-login.btn-danger.btn-float(target="_self" href='auth/google')
+		i.zmdi.zmdi-arrow-forward

@@ -1,0 +1,13 @@
+include ../mixins/header
+include ../mixins/sidebar
+include ../mixins/footer
+
+header#header
+	+header
+section#main
+	aside#sidebar(data-ng-class="{ 'toggled': app.sidebarToggle.left === true }")
+		+sidebar
+	section#content.page-view(data-ui-view='')
+		
+//- footer#footer
+//- 	+footer

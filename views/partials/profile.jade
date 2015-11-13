@@ -1,0 +1,195 @@
+.container
+    .block-header
+        h2
+            | {{ view.firstname }} {{ view.lastname }}
+    #profile-main.card
+        .pm-overview.c-overflow
+            .pmo-pic
+                .p-relative
+                    a(href='')
+                        img.img-responsive(style="border-radius: 50%;" src='img/profile-pics/profile-pic-2.jpg', alt='')
+                    .dropdown.pmop-message(dropdown='')
+                        button.btn.bgm-white.btn-float
+                            i.zmdi.zmdi-edit
+
+            .pmo-block.pmo-contact.hidden-xs
+                h2 Contact
+                ul
+                    li
+                        i.zmdi.zmdi-phone
+                        |  {{ view.firstname }} {{ view.lastname }}
+                    li
+                        i.fa.fa-birthday-cake
+                        |  {{ view.birthdate | date:"shortDate" }}
+
+        .pm-body.clearfix
+            .pmb-block
+                .pmbb-header
+                    h2
+                        i.fa.fa-briefcase.m-r-5
+                        |  Professionnel
+                    ul.actions(data-ng-if='view.editWork === 0')
+                        a(data-ng-click='view.editWork = 1', href='')
+                            i.zmdi.zmdi-edit
+                .pmbb-body.p-l-30
+                    .pmbb-view(data-ng-if='view.editWork === 0')
+                        dl.dl-horizontal
+                            dt Statut
+                            dd {{ view.status }}
+                        dl.dl-horizontal
+                            dt Entreprise/Université
+                            dd {{ view.company }}
+                        dl.dl-horizontal
+                            dt Fonction
+                            dd {{ view.role }}
+                    form.pmbb-edit(data-ng-submit="view.submit('profileWork', 'Professionnel')", data-ng-if='view.editWork === 1')
+                        dl.dl-horizontal
+                            dt.p-t-10 Statut
+                            dd
+                                .fg-line
+                                    select.form-control(data-ng-model='view.status', type='text', value='{{ view.status }}')
+                                        option Etudiant
+                                        option Employé
+                                        option En recherche d'emploi
+                                        option Autre
+                        dl.dl-horizontal
+                            dt.p-t-10 Entreprise/Université
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.company', type='text', value='{{ view.company }}')
+                        dl.dl-horizontal
+                            dt.p-t-10 Fonction
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.role', type='text', value='{{ view.role }}')
+                        .m-t-30
+                            button.btn.btn-primary.btn-sm(type='submit') Enregistrer
+                            button.btn.btn-link.btn-sm(data-ng-click='view.editWork = 0') Annuler
+            .pmb-block
+                .pmbb-header
+                    h2
+                        i.zmdi.zmdi-phone.m-r-5
+                        |  Contact
+                    ul.actions(data-ng-if='view.editContact === 0')
+                        a(data-ng-click='view.editContact = 1', href='')
+                            i.zmdi.zmdi-edit
+                .pmbb-body.p-l-30
+                    .pmbb-view(data-ng-if='view.editContact === 0')
+                        dl.dl-horizontal
+                            dt Adresse
+                            dd(style="white-space: pre-line;") {{ view.adress }}
+                        dl.dl-horizontal
+                            dt Téléphone
+                            dd {{ view.phone }}
+                        dl.dl-horizontal
+                            dt Autre téléphone
+                            dd {{ view.otherPhone }}
+                        dl.dl-horizontal
+                            dt Email gadz
+                            dd {{ view.email }}
+                        dl.dl-horizontal
+                            dt Autre email
+                            dd {{ view.otherEmail }}
+                        dl.dl-horizontal
+                            dt Skype
+                            dd {{ view.skype }}
+                        dl.dl-horizontal
+                            dt Twitter
+                            dd 
+                                a(href="https://twitter.com/{{view.twitter}}")
+                                    @{{ view.twitter }} 
+                    form.pmbb-edit(data-ng-submit="view.submit('profileContact', 'Profile Contact Information')", data-ng-if='view.editContact === 1')
+                        dl.dl-horizontal
+                            dt.p-t-10 Adresse
+                            dd
+                                .fg-line
+                                    textarea.form-control(data-ng-model='view.adress', type='text')
+                        dl.dl-horizontal
+                            dt.p-t-10 Téléphone
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.phone', type='text')
+                         dl.dl-horizontal
+                            dt.p-t-10 Autre téléphone
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.otherPhone', type='text')
+                         dl.dl-horizontal
+                            dt.p-t-10 Email gadz
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.email', type='email')
+                         dl.dl-horizontal
+                            dt.p-t-10 Autre email 
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.otherEmail', type='email')
+                        dl.dl-horizontal
+                            dt.p-t-10 Twitter
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.twitter', type='text')
+                        dl.dl-horizontal
+                            dt.p-t-10 Skype
+                            dd
+                                .fg-line
+                                    input.form-control(data-ng-model='view.skype', type='text')
+                        .m-t-30
+                            button.btn.btn-primary.btn-sm(type='submit') Enregistrer
+                            button.btn.btn-link.btn-sm(data-ng-click='view.editContact = 0') Annuler
+            .pmb-block
+                .pmbb-header
+                    h2
+                        i.fa.fa-briefcase.m-r-5
+                        |  Newsletter jobs
+                    ul.actions(data-ng-if='view.editNewsletter === 0')
+                        a(data-ng-click='view.editNewsletter = 1', href='')
+                            i.zmdi.zmdi-edit
+                .pmbb-body.p-l-30
+                    .pmbb-view(data-ng-if='view.editNewsletter === 0')
+                        dl.dl-horizontal
+                            dt Stage
+                            dd 
+                                span(ng-if="view.newsletter.stage") Oui
+                                span(ng-if="!view.newsletter.stage") Non
+
+                        dl.dl-horizontal
+                            dt VIE
+                            dd 
+                                span(ng-if="view.newsletter.vie") Oui
+                                span(ng-if="!view.newsletter.vie") Non
+                        dl.dl-horizontal
+                            dt CDD
+                            dd 
+                                span(ng-if="view.newsletter.cdd") Oui
+                                span(ng-if="!view.newsletter.cdd") Non
+                        dl.dl-horizontal
+                            dt CDI
+                            dd 
+                                span(ng-if="view.newsletter.cdi") Oui
+                                span(ng-if="!view.newsletter.cdi") Non
+                    form.pmbb-edit(data-ng-submit="view.submit('profileNewsletter', 'Newsletter')", data-ng-if='view.editNewsletter === 1')
+                        p Pour t'abonner aux newsletter jobs, coche les types d'emplois qui t'intéressent !
+                        .checkbox.m-b-15
+                            label
+                                input(type="checkbox" value="" ng-model="view.newsletter.stage")
+                                i.input-helper
+                                | Stage
+                        .checkbox.m-b-15
+                            label
+                                input(type="checkbox" value="" ng-model="view.newsletter.vie")
+                                i.input-helper
+                                | VIE
+                        .checkbox.m-b-15
+                            label
+                                input(type="checkbox" value="" ng-model="view.newsletter.cdd")
+                                i.input-helper
+                                | CDD
+                        .checkbox.m-b-15
+                            label
+                                input(type="checkbox" value="" ng-model="view.newsletter.cdi")
+                                i.input-helper
+                                | CDI
+                        .m-t-30
+                            button.btn.btn-primary.btn-sm(type='submit') Enregistrer
+                            button.btn.btn-link.btn-sm(data-ng-click='view.editNewsletter = 0') Annuler

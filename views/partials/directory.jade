@@ -1,0 +1,72 @@
+.container
+	.block-header
+		h2
+			| Contacts
+			small Manage your contact information
+		ul.actions.m-t-20.hidden-xs
+			li.dropdown(dropdown='')
+				a(href='', dropdown-toggle='')
+					i.zmdi.zmdi-more-vert
+				ul.dropdown-menu.dropdown-menu-right
+					li
+						a(href='') Privacy Settings
+					li
+						a(href='') Account Settings
+					li
+						a(href='') Other Settings
+	// Add button
+	button.btn.btn-float.btn-danger.m-btn
+		i.zmdi.zmdi-plus
+	.card
+		.lv-header-alt.clearfix.m-b-5
+			h2.lvh-label.hidden-xs 19,453 Records
+			.lvh-search(data-ng-if='app.listviewSearchStat', data-ng-click='app.listviewSearchStat')
+				input.lvhs-input(type='text', placeholder='Start typing...')
+				i.lvh-search-close(data-ng-click='app.listviewSearchStat = false') ×
+			ul.lv-actions.actions
+				li
+					a(href='', data-ng-click='app.listviewSearchStat = true')
+						i.zmdi.zmdi-search
+				li
+					a(href='')
+						i.zmdi.zmdi-time
+				li.dropdown(dropdown='')
+					a(href='', dropdown-toggle='', aria-expanded='false', aria-haspopup='true')
+						i.zmdi.zmdi-sort
+					ul.dropdown-menu.dropdown-menu-right
+						li
+							a(href='') Last Modified
+						li
+							a(href='') Last Edited
+						li
+							a(href='') Name
+						li
+							a(href='') Date
+				li
+					a(href='')
+						i.zmdi.zmdi-info
+				li.dropdown(dropdown='')
+					a(href='', dropdown-toggle='', aria-expanded='false', aria-haspopup='true')
+						i.zmdi.zmdi-more-vert
+					ul.dropdown-menu.dropdown-menu-right
+						li
+							a(href='') Refresh
+						li
+							a(href='') Settings
+		.card-body.card-padding
+			.contacts.clearfix.row
+				.col-md-2.col-sm-4.col-xs-6(ng-repeat="user in view.users track by $index")
+					.c-item
+						a.ci-avatar(href='')
+							img(src='img/contacts/{{$index%16+1}}.jpg', alt='')
+						.c-info
+							strong {{user.name}}
+							small {{user.buque}}
+						.c-footer
+							button.waves-effect
+								i.zmdi.zmdi-person-add
+								|  Add
+			.load-more
+				a(href='')
+					i.zmdi.zmdi-refresh-alt
+					|  Load More...

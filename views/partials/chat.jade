@@ -1,0 +1,144 @@
+.container
+	.full-screen-chat
+		#messages-main.card.m-b-0(style="display: block; overflow: hidden; height: 100%; ")
+			a#ms-compose.btn.bgm-red.btn-float(href='')
+				i.zmdi.zmdi-plus
+			.ms-menu(data-ng-class="{ 'toggled': mactrl.lvMenuStat }")
+				.ms-block
+					.ms-user
+						img(src='img/profile-pics/4.jpg', alt='')
+						div
+							| Signed in as 
+							br
+							|  m-hollaway@gmail.com
+				.ms-block
+					.dropdown(dropdown='')
+						a.btn.btn-primary.btn-block(href='', dropdown-toggle='')
+							| Messages 
+							i.caret.m-l-5
+						ul.dropdown-menu.dm-icon.w-100
+							li
+								a(href='')
+									i.zmdi.zmdi-email
+									|  Messages
+							li
+								a(href='')
+									i.zmdi.zmdi-account
+									|  Contacts
+							li
+								a(href='')
+									i.zmdi.zmdi-format-list-bulleted  
+									| Todo Lists
+				.listview.lv-user.m-t-20(style="overflow: hidden; display: block; position: relative;")
+					div.c-overflow(style="display: block; position: relative;")
+						.lv-item.media.active
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/1.jpg', alt='')
+							.media-body
+								.lv-title Davil Parnell
+								.lv-small Fierent fastidii recteque ad pro
+						.lv-item.media
+							.lv-avatar.bgm-red.pull-left a
+							.media-body
+								.lv-title Ann Watkinson
+								.lv-small Cum sociis natoque penatibus 
+						.lv-item.media
+							.lv-avatar.bgm-red.pull-left a
+							.media-body
+								.lv-title Ann Watkinson
+								.lv-small Cum sociis natoque penatibus
+						.lv-item.media
+							.lv-avatar.bgm-red.pull-left a
+							.media-body
+								.lv-title Ann Watkinson
+								.lv-small Cum sociis natoque penatibus
+						.lv-item.media
+							.lv-avatar.bgm-orange.pull-left m
+							.media-body
+								.lv-title Marse Walter
+								.lv-small Suspendisse sapien ligula
+						.lv-item.media
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/2.jpg', alt='')
+							.media-body
+								.lv-title Jeremy Robbins
+								.lv-small Phasellus porttitor tellus nec
+						.lv-item.media
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/3.jpg', alt='')
+							.media-body
+								.lv-title Reginald Horace
+								.lv-small Quisque consequat arcu eget
+						.lv-item.media
+							.lv-avatar.bgm-cyan.pull-left s
+							.media-body
+								.lv-title Shark Henry
+								.lv-small Nam lobortis odio et leo maximu
+						.lv-item.media
+							.lv-avatar.bgm-purple.pull-left p
+							.media-body
+								.lv-title Paul Van Dack
+								.lv-small Nam posuere purus sed velit auctor sodales
+						.lv-item.media
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/4.jpg', alt='')
+							.media-body
+								.lv-title James Anderson
+								.lv-small Vivamus imperdiet sagittis quam
+						.lv-item.media
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/6.jpg', alt='')
+							.media-body
+								.lv-title Kane Williams
+								.lv-small Suspendisse justo nulla luctus nec
+			.ms-body(style="height: 100%;")
+				.listview.lv-message(style="height: 100%;")
+					.lv-header-alt.clearfix
+						#ms-menu-trigger(data-ng-class="{ 'open': mactrl.lvMenuStat }", data-ng-click='mactrl.lvMenuStat = (mactrl.lvMenuStat===true ? false : true )')
+							.line-wrap
+								.line.top
+								.line.center
+								.line.bottom
+						.lvh-label.hidden-xs
+							.lv-avatar.pull-left
+								img(src='img/profile-pics/1.jpg', alt='')
+							span.c-black David Parbell
+						ul.lv-actions.actions
+							li
+								a(href='')
+									i.zmdi.zmdi-delete
+							li
+								a(href='')
+									i.zmdi.zmdi-check
+							li
+								a(href='')
+									i.zmdi.zmdi-time
+							li.dropdown(dropdown='')
+								a(href='', dropdown-toggle='', aria-expanded='true')
+									i.zmdi.zmdi-sort
+								ul.dropdown-menu.dropdown-menu-right
+									li
+										a(href='') Latest
+									li
+										a(href='') Oldest
+							li.dropdown(dropdown='')
+								a(href='', dropdown-toggle='', aria-expanded='true')
+									i.zmdi.zmdi-more-vert
+								ul.dropdown-menu.dropdown-menu-right
+									li
+										a(href='') Refresh
+									li
+										a(href='') Message Settings
+					.lv-footer.ms-reply
+						textarea(placeholder="What's on your mind...")
+						button
+							i.zmdi.zmdi-mail-send
+
+script.
+	$(function() {
+		$(window).resize(function() {
+			$('.full-screen-chat').height($(window).height() - $('.full-screen-chat').offset().top - 30);
+		});
+		$(window).resize();
+	});
+

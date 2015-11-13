@@ -1,0 +1,21 @@
+{
+
+	"MongoDB": {
+		"uri": "mongodb://user:passw0rd@ds053774.mongolab.com:53774/testiot"
+	},
+	"BasicAuth": {
+		"enable": false,
+		"user": "user",
+		"password": "password"
+	},
+	"Session": {
+		"secret": "secret"
+	},
+	"Auth": {
+		"google": {
+			"clientID": "key",
+			"clientSecret": "secret",
+			"callbackURL": "http://127.0.0.1:3000/auth/google/callback"
+		}
+	}
+}

@@ -1,0 +1,21 @@
+.container
+	.row
+		.col-xs-12
+			h2 View 1
+			p Value : {{value.v1}}
+	.row
+		.col-lg-6.col-sm-12
+			.panel.panel-default
+				.panel-heading
+					p(style='text-align: center') My chart
+				.panel-body
+					.chart-container
+						canvas#line.chart.chart-line(chart-data='data', chart-labels='labels', chart-legend='true', chart-series='series', chart-click='onClick')
+
+
+
+
+
+
+
+
